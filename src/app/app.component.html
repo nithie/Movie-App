@@ -1,0 +1,34 @@
+
+ <div class="container-fluid">
+   <nav class="navbar navbar-inverse">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Movie-App</a>
+    </div> 
+    <form class="navbar-form navbar-left ">
+      <div class="input-group">
+        <input type="text" class="form-control" [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}" placeholder="Search Movie">
+        <div class="input-group-btn">
+          <button class="btn btn-default">
+            <i class="glyphicon glyphicon-search" (click)="OnSearch()"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+
+</nav>
+ 
+<div *ngFor="let movie of movieNameResult">
+  <div class="row jumbotron">
+    <div class="col-md-3 well">
+       <img class="img-responsive" src="https://image.tmdb.org/t/p/w320{{movie.poster_path}}" ></div>
+     <div class="col-md-8">
+       <h2 class="text-uppercase">{{movie.title}}</h2>
+       <p><!--{{movie.genre_ids}}-->Crime,Thriller,Drama</p>
+       <blockquote>{{movie.overview}}</blockquote>
+       <h4>{{movie.release_date}}</h4>
+       <button class="btn btn-success"><i class="glyphicon glyphicon-plus"></i>Add to Favoutites</button>
+    </div>
+   </div>
+  </div>
+</div>
+
