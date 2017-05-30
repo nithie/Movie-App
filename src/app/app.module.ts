@@ -4,15 +4,19 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ButtonsModule } from 'ngx-bootstrap';
+import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 
-import { AppComponent } from './app.component';
+import { SearchComponent } from './searchComponent/search.component';
+import { DisplayMovie } from './displayComponent/display-movie.component';
 import { InfiniteScrollerDirective } from './infinite-scroll.directive';
 
 @NgModule({
   declarations: [
-    AppComponent,InfiniteScrollerDirective
+    SearchComponent,
+    DisplayMovie
   ],
   imports: [
+    InfiniteScrollModule,
     BrowserModule,
     FormsModule,
     HttpModule,
@@ -20,6 +24,6 @@ import { InfiniteScrollerDirective } from './infinite-scroll.directive';
     ButtonsModule.forRoot()
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [SearchComponent]
 })
 export class AppModule { }

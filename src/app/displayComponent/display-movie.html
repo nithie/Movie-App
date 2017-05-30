@@ -1,17 +1,9 @@
-
- <div class="container-fluid">
-   <nav class="navbar navbar-inverse">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Movie-App</a>
-    </div> 
-    <form class="navbar-form navbar-left ">
-      <div class="input-group">
-        <input type="text" class="form-control" [formControl]="term" placeholder="Search Movie,Tv show..." required>
-      </div>
-    </form>
-</nav>
- 
-<div *ngFor="let movie of movieNameResult">
+<div id="infinite-scroller"
+      infinite-scroll
+      [infiniteScrollDistance]="1"
+      [infiniteScrollThrottle]="1000"
+      (scrolled)="movieArray.onScroll()">
+<div *ngFor="let movie of movieArray.movieNameResult">
   <div class="row jumbotron">
     <div class="col-md-2 well">
        <img class="img-responsive center-block" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="No Image Provoided"></div>
@@ -23,5 +15,4 @@
     </div>
    </div>
   </div>
-</div>
-
+ </div>
