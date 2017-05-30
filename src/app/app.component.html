@@ -6,27 +6,20 @@
     </div> 
     <form class="navbar-form navbar-left ">
       <div class="input-group">
-        <input type="text" class="form-control" [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}" placeholder="Search Movie">
-        <div class="input-group-btn">
-          <button class="btn btn-default">
-            <i class="glyphicon glyphicon-search" (click)="OnSearch()"></i>
-          </button>
-        </div>
+        <input type="text" class="form-control" [formControl]="term" placeholder="Search Movie,Tv show..." required>
       </div>
     </form>
-
 </nav>
  
 <div *ngFor="let movie of movieNameResult">
   <div class="row jumbotron">
-    <div class="col-md-3 well">
-       <img class="img-responsive" src="https://image.tmdb.org/t/p/w320{{movie.poster_path}}" ></div>
-     <div class="col-md-8">
-       <h2 class="text-uppercase">{{movie.title}}</h2>
-       <p><!--{{movie.genre_ids}}-->Crime,Thriller,Drama</p>
-       <blockquote>{{movie.overview}}</blockquote>
-       <h4>{{movie.release_date}}</h4>
-       <button class="btn btn-success"><i class="glyphicon glyphicon-plus"></i>Add to Favoutites</button>
+    <div class="col-md-2 well">
+       <img class="img-responsive center-block" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="No Image Provoided"></div>
+     <div class="col-md-10">
+       <h2 class="text-info">{{movie.title}}</h2>
+       <h4><i class="glyphicon glyphicon-calendar text-danger"></i>{{movie.release_date}}</h4>
+       <h4 class=text-muted>{{getGenre(movie.genre_ids)}}</h4>
+       <blockquote>{{movie.overview}}</blockquote> 
     </div>
    </div>
   </div>
